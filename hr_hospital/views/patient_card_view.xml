@@ -1,0 +1,70 @@
+<odoo>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="patient_card_tree">
+      <field name="name">patient card list</field>
+      <field name="model">patient.card</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="patient"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="patient.card.action_window">
+      <field name="name">patient card window</field>
+      <field name="res_model">patient.card</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_patient_card_form">
+        <field name="name">patient.card.form</field>
+        <field name="model">patient.card</field>
+        <field name="arch" type="xml">
+            <form string="Patient card">
+            <sheet>              
+                <div class="float-left">
+                    <label for="name" class="oe_inline"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <notebook>
+                    <page string="Visits" name="visits">
+                        <field name="line_ids">
+                            <tree string="Visits" editable="bottom">
+                                <field name="name"/>
+                                <field name="doctor_id"/>
+                                <field name="diagnosis_id"/>
+                                <field name="date_of_diagnosis"/>
+                            </tree>
+                            <form string="Visits">
+                                <group>
+                                <field name="name"/>
+                                <field name="doctor_id"/>
+                                <field name="diagnosis_id"/>
+                                <field name="date_of_diagnosis"/>
+                                </group>
+                            </form>
+                        </field>
+                        <separator string="Description"/>
+                        <field name="description" class="oe-bordered-editor" />
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+              <field name="message_follower_ids"/>
+              <field name="activity_ids"/>
+              <field name="message_ids"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+  <menuitem name="Patient card" id="patient_card_hospital_list" parent="hr_hospital_hospital"
+              action="patient.card.action_window" sequence="10"/>
+</odoo>
