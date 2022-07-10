@@ -1,0 +1,42 @@
+<odoo>
+    <record model="ir.ui.view" id="patient_tree_view">
+        <field name="name">Patient Tree</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="name"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="patient_form_view">
+        <field name="name">Patient Form</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <label for="name" class="oe_inline"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <label for="age" class="oe_inline"/>
+                    <h3>
+                        <field name="age"/>
+                    </h3>
+                    <separator string="Description"/>
+                    <field name="description" class="oe-bordered-editor" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="patient_action_window">
+        <field name="name">Patient</field>
+        <field name="res_model">patient</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="patient_tree_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Patient</p>
+        </field>
+    </record>
+    <menuitem name="Patient" id="patient_hospital_tree" parent="hr_hospital_hospital" action="patient_action_window" sequence="10" />
+</odoo>
