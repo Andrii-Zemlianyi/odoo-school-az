@@ -28,7 +28,7 @@
     </record>
     <!-- actions opening views on models -->
     <record id="diagnosis_action" model="ir.actions.act_window">
-        <field name="name">Action Name</field>
+        <field name="name">Diagnosis</field>
         <field name="res_model">diagnosis</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
@@ -39,5 +39,5 @@
             </p>
         </field>
     </record>
-    <menuitem name="Diagnosis" id="diagnosis_hospital_tree" parent="hr_hospital_hospital" action="diagnosis_action" sequence="40" />
+    <menuitem name="Diagnosis" id="diagnosis_hospital_tree" parent="hr_hospital_registry" action="diagnosis_action" sequence="40" />
 </odoo>
