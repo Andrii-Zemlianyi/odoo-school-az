@@ -1,11 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <!-- Top menu item -->
-
     <menuitem name="Hospital" id="hr_hospital_menu_root" web_icon="hr_hospital,static/description/icon.png" sequence="125"/>
 
     <!-- menu categories -->
-
     <menuitem name="Hospital records" id="hr_hospital_hospital" parent="hr_hospital_menu_root" sequence="1"/>
-
 
 </odoo>

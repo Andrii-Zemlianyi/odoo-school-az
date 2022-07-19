@@ -1,6 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <record model="ir.ui.view" id="doctor_tree_view">
-        <field name="name">Doctor Tree</field>
+    <record id="doctor_view_tree" model="ir.ui.view">
+        <field name="name">doctor.view.tree</field>
         <field name="model">doctor</field>
         <field name="arch" type="xml">
             <tree string="Doctors">
@@ -8,11 +9,11 @@
             </tree>
         </field>
     </record>
-    <record model="ir.ui.view" id="doctor_form_view">
-        <field name="name">Doctor Form</field>
+    <record id="doctor_view_form" model="ir.ui.view">
+        <field name="name">doctor.view.form</field>
         <field name="model">doctor</field>
         <field name="arch" type="xml">
-            <form string="Doctor">
+            <form string="">
                 <sheet>
                     <label for="name" class="oe_inline"/>
                     <h1>
@@ -28,14 +29,15 @@
             </form>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="doctor_action_window">
-        <field name="name">Doctor</field>
+    <record id="doctor_action" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
         <field name="res_model">doctor</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="doctor_tree_view"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create Doctor</p>
         </field>
     </record>
-    <menuitem name="Doctor" id="doctor_hospital_tree" parent="hr_hospital_hospital" action="doctor_action_window" sequence="20" />
+    <menuitem name="Doctor" id="doctor_hospital_tree" parent="hr_hospital_hospital" action="doctor_action" sequence="20" />
 </odoo>

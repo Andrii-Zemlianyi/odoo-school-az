@@ -1,6 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <record model="ir.ui.view" id="patient_tree_view">
-        <field name="name">Patient Tree</field>
+    <record id="patient_view_tree" model="ir.ui.view">
+        <field name="name">patient.view.tree</field>
         <field name="model">patient</field>
         <field name="arch" type="xml">
             <tree string="Patients">
@@ -9,11 +10,11 @@
             </tree>
         </field>
     </record>
-    <record model="ir.ui.view" id="patient_form_view">
-        <field name="name">Patient Form</field>
+    <record id="patient_view_form" model="ir.ui.view">
+        <field name="name">patient.view.form</field>
         <field name="model">patient</field>
         <field name="arch" type="xml">
-            <form string="Patient">
+            <form string="">
                 <sheet>
                     <label for="name" class="oe_inline"/>
                     <h1>
@@ -29,14 +30,15 @@
             </form>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="patient_action_window">
-        <field name="name">Patient</field>
+    <record id="patient_action" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
         <field name="res_model">patient</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="patient_tree_view"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create Patient</p>
         </field>
     </record>
-    <menuitem name="Patient" id="patient_hospital_tree" parent="hr_hospital_hospital" action="patient_action_window" sequence="10" />
+    <menuitem name="Patient" id="patient_hospital_tree" parent="hr_hospital_hospital" action="patient_action" sequence="10" />
 </odoo>
