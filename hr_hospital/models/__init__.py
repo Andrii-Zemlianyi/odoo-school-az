@@ -1,6 +1,8 @@
-from . import (doctor,
+from . import (person_mixin,
+               doctor, 
+               contact_person,
                patient,
+               disease,
                diagnosis,
-               patient_card,
-               patient_card_line,
+               visit
                )
