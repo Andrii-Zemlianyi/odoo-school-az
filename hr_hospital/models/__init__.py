@@ -4,5 +4,5 @@ from . import (person_mixin,
                patient,
                disease,
                diagnosis,
-               visit
+               visit,
                )
