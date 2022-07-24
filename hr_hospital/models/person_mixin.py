@@ -1,10 +1,7 @@
-from odoo import fields, models
+from odoo import _, fields, models
 
 
 class PersonMixin(models.AbstractModel):
-    """ПІБ, телефон, емейл, фото, стать,
-        унаслідувати від неї моделі 
-        Лікар, Пацієнт, Контактна особа"""
     _name = 'person.mixin'
     _description = 'Person mixin'
 
