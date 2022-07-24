@@ -13,7 +13,7 @@
         parent="hr_hospital_menu_root" 
         sequence="1"/>
     <menuitem
-        id="hr_hospital_visit_menu_"
+        id="hr_hospital_visit_menu"
         name="Visits"
         parent="hr_hospital_menu_root"
         sequence="10"/>

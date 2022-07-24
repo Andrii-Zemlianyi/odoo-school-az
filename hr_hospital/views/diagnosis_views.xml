@@ -53,7 +53,7 @@
     <menuitem 
         id="diagnosis_menu" 
         name="Diagnosis" 
-        parent="hr_hospital_visit_menu_menu" 
+        parent="hr_hospital_visit_menu" 
         action="diagnosis_action" 
-        sequence="40" />
+        sequence="20" />
 </odoo>

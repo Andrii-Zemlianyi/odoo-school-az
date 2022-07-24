@@ -25,6 +25,7 @@
         'views/hr_hospital_menus.xml',
         'views/patient_views.xml',
         'views/sample_type_views.xml',
+        'views/visit_views.xml',
     ],
 
     # 'demo': [

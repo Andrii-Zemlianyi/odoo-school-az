@@ -28,8 +28,8 @@
                         <field name="doctor_id"/>
                         <field name="study_id"/>
                         <field name="sample_id"/>
-                        <separator string="Description"/>
-                        <field name="description" class="oe-bordered-editor" />
+                        <separator string="Conclusion"/>
+                        <field name="conclusion" class="oe-bordered-editor" />
                     </group>
                 </sheet>
             </form>
@@ -50,5 +50,5 @@
         name="Patient studies"
         action="patient_study_action"
         parent="hr_hospital_visit_menu"
-        sequence="40"/>
+        sequence="50"/>
 </odoo>

@@ -35,7 +35,7 @@
                         <field name="photo"/>
                         <field name="specialty"/>
                         <field name="is_intern"/>
-                        <field name="mentot_id"/>
+                        <field name="mentor_id"/>
                         <separator string="Description"/>
                         <field name="description" class="oe-bordered-editor" />
                     </group>

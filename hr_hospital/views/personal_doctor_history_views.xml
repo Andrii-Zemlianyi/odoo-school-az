@@ -40,6 +40,6 @@
         id="personal_doctor_history_menu"
         name="History of personal doctors"
         action="personal_doctor_history_action"
-        parent="hr_hospital_regestry"
+        parent="hr_hospital_registry_menu"
         sequence="70"/>
 </odoo>

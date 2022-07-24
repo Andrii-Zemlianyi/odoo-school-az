@@ -42,5 +42,5 @@
         name="Types of sample"
         action="sample_type_action"
         parent="hr_hospital_visit_menu"
-        sequence="70"/>
+        sequence="90"/>
 </odoo>
