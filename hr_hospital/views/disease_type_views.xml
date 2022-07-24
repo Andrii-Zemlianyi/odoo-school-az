@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="diseases_type_view_tree" model="ir.ui.view">
+        <field name="name">diseases.type.view.tree</field>
+        <field name="model">diseases.type</field>
+        <field name="arch" type="xml">
+            <tree string="Types of disease">
+                <field name="name"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="diseases_type_view_form" model="ir.ui.view">
+        <field name="name">diseases.type.view.form</field>
+        <field name="model">diseases.type</field>
+        <field name="arch" type="xml">
+            <form string="Type of disease">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="diseases_type_action" model="ir.actions.act_window">
+        <field name="name">Diseases type</field>
+        <field name="res_model">diseases.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create diseases type
+            </p>
+        </field>
+    </record>
+    <menuitem
+        id="diseases_type_menu"
+        name="Diseases types"
+        action="diseases_type_action"
+        parent="hr_hospital_visit_menu_menu"
+        sequence="50"/>
+</odoo>

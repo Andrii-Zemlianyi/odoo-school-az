@@ -1,26 +1,38 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <record id="diagnosis_view_tree" model="ir.ui.view">
-        <field name="name">view_diagnosis_form_tree</field>
+        <field name="name">diagnosis.view.tree</field>
         <field name="model">diagnosis</field>
         <field name="arch" type="xml">
             <tree string="Diagnosis">
                 <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="disease_id"/>
+                <field name="date_of_diagnosis"/>
             </tree>
         </field>
     </record>
     <record id="diagnosis_view_form" model="ir.ui.view">
-        <field name="name">view_diagnosis_form</field>
+        <field name="name">diagnosis.view.form</field>
         <field name="model">diagnosis</field>
         <field name="arch" type="xml">
             <form string="Diagnosis">
                 <sheet>
-                    <label for="name" class="oe_inline"/>
-                    <h1>
-                        <field name="name"/>
-                    </h1>
-                    <separator string="Prescribed treatment"/>
-                    <field name="prescribed_treatment" class="oe-bordered-editor" />
+                    <group>
+                        <label for="name" class="oe_inline"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="disease_id"/>
+                        <field name="date_of_diagnosis"/>
+                        <field name="comments_of_mentor"/>
+                        <separator string="Prescribed treatment"/>
+                        <field name="prescribed_treatment" 
+                                class="oe-bordered-editor" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -38,5 +50,10 @@
             </p>
         </field>
     </record>
-    <menuitem name="Diagnosis" id="diagnosis_hospital_tree" parent="hr_hospital_registry" action="diagnosis_action" sequence="40" />
+    <menuitem 
+        id="diagnosis_menu" 
+        name="Diagnosis" 
+        parent="hr_hospital_visit_menu_menu" 
+        action="diagnosis_action" 
+        sequence="40" />
 </odoo>

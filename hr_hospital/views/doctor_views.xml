@@ -1,30 +1,44 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
     <record id="doctor_view_tree" model="ir.ui.view">
-        <field name="name">view_doctor_form_tree</field>
+        <field name="name">doctor.view.tree</field>
         <field name="model">doctor</field>
         <field name="arch" type="xml">
             <tree string="Doctors">
                 <field name="name"/>
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="midle_name"/>
+                <field name="gender"/>
+                <field name="specialty"/>
+                <field name="is_intern"/>
             </tree>
         </field>
     </record>
     <record id="doctor_view_form" model="ir.ui.view">
-        <field name="name">view_doctor_form</field>
+        <field name="name">doctor.view.form</field>
         <field name="model">doctor</field>
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
-                    <label for="name" class="oe_inline"/>
-                    <h1>
-                        <field name="name"/>
-                    </h1>
-                    <label for="specialty" class="oe_inline"/>
-                    <h3>
+                    <group>
+                        <label for="name" class="oe_inline"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <field name="last_name"/>
+                        <field name="first_name"/>
+                        <field name="midle_name"/>
+                        <field name="gender"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="photo"/>
                         <field name="specialty"/>
-                    </h3>
-                    <separator string="Description"/>
-                    <field name="description" class="oe-bordered-editor" />
+                        <field name="is_intern"/>
+                        <field name="mentot_id"/>
+                        <separator string="Description"/>
+                        <field name="description" class="oe-bordered-editor" />
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -39,5 +53,10 @@
             <p class="o_view_nocontent_smiling_face">Create Doctor</p>
         </field>
     </record>
-    <menuitem name="Doctor" id="doctor_hospital_tree" parent="hr_hospital_registry" action="doctor_action" sequence="20" />
+    <menuitem 
+        id="doctor_hospital_tree"
+        name="Doctor"
+        parent="hr_hospital_registry_menu"
+        action="doctor_action"
+        sequence="20" />
 </odoo>
