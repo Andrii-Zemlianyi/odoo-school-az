@@ -6,7 +6,6 @@
         <field name="arch" type="xml">
             <tree string="Diagnosis">
                 <field name="name"/>
-                <field name="description"/>
             </tree>
         </field>
     </record>
@@ -20,8 +19,8 @@
                     <h1>
                         <field name="name"/>
                     </h1>
-                    <separator string="Description"/>
-                    <field name="description" class="oe-bordered-editor" />
+                    <separator string="Prescribed treatment"/>
+                    <field name="prescribed_treatment" class="oe-bordered-editor" />
                 </sheet>
             </form>
         </field>

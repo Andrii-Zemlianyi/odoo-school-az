@@ -7,4 +7,6 @@ class Doctor(models.Model):
     _description = 'Doctor'
 
     specialty = fields.Char()
+    is_intern = fields.Boolean('Is Intern')
+    mentor_id = fields.Many2one('doctor', string='Mentor')
     description = fields.Text()

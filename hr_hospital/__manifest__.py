@@ -13,11 +13,10 @@
 
     'data': [
         'security/ir.model.access.csv',
-        'views/hr_hospital_menu.xml',
+        'views/hr_hospital_menus.xml',
         'views/diagnosis_views.xml',
         'views/doctor_views.xml',
         'views/patient_views.xml',
-        # 'views/patient_card_views.xml',
     ],
 
     'demo': [

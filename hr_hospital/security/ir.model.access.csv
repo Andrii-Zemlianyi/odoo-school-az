@@ -2,5 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_doctor,access_doctor,model_doctor,base.group_user,1,1,1,1
 access_patient,access_patient,model_patient,base.group_user,1,1,1,1
 access_diagnosis,access_diagnosis,model_diagnosis,base.group_user,1,1,1,1
-access_patient_card,access_patient_card,model_patient_card,base.group_user,1,1,1,1
-access_patient_card_line,access_patient_card_line,model_patient_card_line,base.group_user,1,1,1,1
+access_disease,access_disease,model_disease,base.group_user,1,1,1,1
+access_contact_person,access_contact_person,model_contact_person,base.group_user,1,1,1,1
+access_visit,access_visit,model_visit,base.group_user,1,1,1,1

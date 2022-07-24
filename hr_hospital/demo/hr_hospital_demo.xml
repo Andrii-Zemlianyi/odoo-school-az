@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-
+<!-- 
           <record id="doctor_1" model="doctor">
             <field name="name">Коваленко П.С.</field>
             <field name="specialty">Сімейний лікар</field>
@@ -30,4 +30,5 @@
             <field name="name">ОРВІ</field>
             <field name="description">Нежить, висока темп., головний біль ...</field>
           </record>
-</odoo>
+ -->
+ </odoo>
