@@ -1,9 +1,9 @@
 from odoo import fields, models
 
 
-class DiseasesType(models.Model):
-    _name = 'diseases.type'
-    _description = 'Type of disease'
+class StudyType(models.Model):
+    _name = 'study.type'
+    _description = 'Type of study'
     _parent_name = "parent_id"
     _parent_store = True
     #_rec_name = 'complete_name'
@@ -13,7 +13,7 @@ class DiseasesType(models.Model):
     # complete_name = fields.Char('Complete Name',
     #                             compute='_compute_complete_name',
     #                             store=True)
-    parent_id = fields.Many2one('diseases.type', 'Parent Type', index=True,
+    parent_id = fields.Many2one('study.type', 'Parent Type', index=True,
                                 ondelete='cascade')
     parent_path = fields.Char(index=True)
-    child_id = fields.One2many('diseases.type', 'parent_id', 'Child Type')
+    child_id = fields.One2many('study.type', 'parent_id', 'Child Type')
