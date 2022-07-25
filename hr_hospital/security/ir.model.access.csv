@@ -10,3 +10,4 @@ access_visit_base,access_visit.base,model_visit,base.group_user,1,1,1,1
 access_personal_doctor_history_base,personal_doctor_history.base,model_personal_doctor_history,base.group_user,1,1,1,1
 access_sample_type_base,sample_type.base,model_sample_type,base.group_user,1,1,1,1
 access_study_type_base,study.type.base,model_study_type,base.group_user,1,1,1,1
+access_set_personal_doctor_base,set.personal.doctor.base,model_set_personal_doctor,base.group_user,1,1,1,1

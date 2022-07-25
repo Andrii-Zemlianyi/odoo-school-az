@@ -11,3 +11,6 @@ class PersonalDoctorHistory(models.Model):
                                  index=True, required=True)
     appointment_date = fields.Date('Аppointment date',
                                    index=True, required=True)
+
+    def name_get(self):
+        return [(tag.id, "%s - %s: %s" % (tag.patient_id.name, tag.doctor_id.name, tag.appointment_date)) for tag in self]

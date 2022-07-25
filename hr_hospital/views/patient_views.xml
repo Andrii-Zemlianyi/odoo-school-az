@@ -5,7 +5,6 @@
         <field name="model">patient</field>
         <field name="arch" type="xml">
             <tree string="Patients">
-                <field name="name"/>
                 <field name="last_name"/>
                 <field name="first_name"/>
                 <field name="midle_name"/>
@@ -18,24 +17,25 @@
         <field name="name">view.patient.form</field>
         <field name="model">patient</field>
         <field name="arch" type="xml">
-            <form string="">
+            <form string="Patient">
                 <sheet>
-                    <label for="name" class="oe_inline"/>
-                    <h1>
-                        <field name="name"/>
-                    </h1>
-                    <field name="last_name"/>
-                    <field name="first_name"/>
-                    <field name="midle_name"/>
-                    <field name="date_of_bith"/>
-                    <field name="age"/>
-                    <field name="gender"/>
-                    <field name="passport"/>
-                    <field name="phone"/>
-                    <field name="email"/>
-                    <field name="photo"/>
-                    <field name="contact_person_id"/>
-                    <field name="personal_doctor_id"/>
+                    <group>
+                        <field name="last_name"/>
+                        <field name="first_name"/>
+                        <field name="midle_name"/>
+                        <field name="date_of_bith"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="passport_series"/>
+                        <field name="passport_number"/>
+                        <field name="passport_issued"/>
+                        <field name="passport_issued_by"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="photo"  widget='image' class='oe_avatar'/>
+                        <field name="contact_person_id"/>
+                        <field name="personal_doctor_id"/>
+                    </group>
                     <separator string="Description"/>
                     <field name="description" class="oe-bordered-editor" />
                 </sheet>

@@ -1,6 +1,7 @@
 from . import (person_mixin,
                doctor, 
                contact_person,
+               personal_doctor_history,
                patient,
                patient_study,
                disease_type,
@@ -9,5 +10,4 @@ from . import (person_mixin,
                disease,
                diagnosis,
                visit,
-               personal_doctor_history,
                )

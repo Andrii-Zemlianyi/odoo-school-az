@@ -5,7 +5,6 @@
         <field name="model">contact.person</field>
         <field name="arch" type="xml">
             <tree string="Contact persons">
-                <field name="name"/>
                 <field name="last_name"/>
                 <field name="first_name"/>
                 <field name="midle_name"/>
@@ -22,19 +21,15 @@
             <form string="Contact person">
                 <sheet>
                     <group>
-                    <label for="name" class="oe_inline"/>
-                    <h1>
-                        <field name="name"/>
-                    </h1>
-                    <field name="last_name"/>
-                    <field name="first_name"/>
-                    <field name="midle_name"/>
-                    <field name="gender"/>
-                    <field name="phone"/>
-                    <field name="email"/>
-                    <field name="photo"/>
-                    <separator string="Description"/>
-                    <field name="description" class="oe-bordered-editor" />   
+                        <field name="last_name"/>
+                        <field name="first_name"/>
+                        <field name="midle_name"/>
+                        <field name="gender"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="photo"/>
+                        <separator string="Description"/>
+                        <field name="description" class="oe-bordered-editor" />
                     </group>
                 </sheet>
             </form>

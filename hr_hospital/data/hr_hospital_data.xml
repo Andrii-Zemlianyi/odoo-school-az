@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="disease_type_1" model="disease.type">
+        <field name="name">Респіраторні захворювання</field>
+    </record>
+    <record id="disease_type_2" model="disease.type">
+        <field name="name">Захворювання сердця</field>
+    </record>
+    <record id="disease_type_3" model="disease.type">
+        <field name="name">Інфекційні хвороби</field>
+    </record>
+    <record id="disease_type_1_1" model="disease.type">
+        <field name="name">Застуда</field>
+        <field name="parent_id" ref="disease_type_1"/>
+    </record>
+    <record id="disease_type_1_2" model="disease.type">
+        <field name="name">Запалення легень</field>
+        <field name="parent_id" ref="disease_type_1"/>
+    </record>
+    <record id="disease_type_2_1" model="disease.type">
+        <field name="name">Інфаркт</field>
+        <field name="parent_id" ref="disease_type_2"/>
+    </record>
+    <record id="disease_type_3_1" model="disease.type">
+        <field name="name">Кір</field>
+        <field name="parent_id" ref="disease_type_3"/>
+    </record>
+    <record id="disease_type_3_2" model="disease.type">
+        <field name="name">Дифтерія</field>
+        <field name="parent_id" ref="disease_type_3"/>
+    </record>
+</odoo>
