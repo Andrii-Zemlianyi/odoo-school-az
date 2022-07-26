@@ -21,16 +21,18 @@
         <field name="res_model">set.personal.doctor</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-    </record>
-    <record id="set_personal_doctor_action_server" model="ir.actions.server">
-        <field name="name">Set Personal Doctor</field>
-        <field name="model_id" ref="model_patient"/>
         <field name="binding_model_id" ref="model_patient"/>
         <field name="binding_view_types">list</field>
-        <field name="state">code</field>
-        <field name="code">
-        if records:
-            action = records.action_error()
-            </field>
     </record>
+<!--    <record id="set_personal_doctor_action_server" model="ir.actions.server">-->
+<!--        <field name="name">Set Personal Doctor</field>-->
+<!--        <field name="model_id" ref="model_patient"/>-->
+<!--        <field name="binding_model_id" ref="model_patient"/>-->
+<!--        <field name="binding_view_types">list</field>-->
+<!--        <field name="state">code</field>-->
+<!--        <field name="code">-->
+<!--        if records:-->
+<!--            action = records.action_error()-->
+<!--            </field>-->
+<!--    </record>-->
 </odoo>
