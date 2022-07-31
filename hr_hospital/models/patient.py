@@ -1,5 +1,4 @@
 from datetime import date
-
 from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api
 
@@ -23,7 +22,12 @@ class Patient(models.Model):
                                         string='Contact person')
     personal_doctor_id = fields.Many2one('doctor', string='Personal doctor', )
     description = fields.Text(string='Description')
-
+    visit_ids = fields.One2many(
+        comodel_name='visit', inverse_name='patient_id', string='Visits')
+    personal_doctor_history_ids = fields.One2many(
+        comodel_name='personal.doctor.history', inverse_name='patient_id', string='Personal Doctor History')
+    diagnosis_ids = fields.One2many(comodel_name='diagnosis', inverse_name='patient_id', string='Diagnosises')
+    
     @api.depends('date_of_bith')
     def _compute_age(self):
         for man in self:
@@ -49,10 +53,7 @@ class Patient(models.Model):
                 self.env['personal.doctor.history'].create({
                     'doctor_id': vals.get('personal_doctor_id'),
                     'patient_id': obj.id, 'appointment_date': date.today(), })
-            val = vals.deepcopy()
-            if obj.contact_person_id:
-                val['passport_number'] = '1111 {}'.format(obj.passport_series)
-            super('Patient', obj).write(val)
+            super(Patient, obj).write(vals)
         return True
         # if vals.get('personal_doctor_id'):
         #     valp = {'doctor_id': vals.get('personal_doctor_id'),

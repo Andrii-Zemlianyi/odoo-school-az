@@ -39,10 +39,22 @@
     </record>
     <!-- actions opening views on models -->
     <record id="diagnosis_action" model="ir.actions.act_window">
-        <field name="name">Diagnosis</field>
+        <field name="name">Diagnosises</field>
         <field name="res_model">diagnosis</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+              Create Diagnosis
+            </p>
+        </field>
+    </record>
+    <record id="diagnosis_action_from_patient" model="ir.actions.act_window">
+        <field name="name">Patient Diagnosises</field>
+        <field name="res_model">diagnosis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

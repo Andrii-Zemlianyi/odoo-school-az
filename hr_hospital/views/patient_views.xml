@@ -18,24 +18,101 @@
         <field name="model">patient</field>
         <field name="arch" type="xml">
             <form string="Patient">
+                <header/>
                 <sheet>
-                    <group>
-                        <field name="last_name"/>
-                        <field name="first_name"/>
-                        <field name="midle_name"/>
-                        <field name="date_of_bith"/>
-                        <field name="age"/>
-                        <field name="gender"/>
-                        <field name="passport_series"/>
-                        <field name="passport_number"/>
-                        <field name="passport_issued"/>
-                        <field name="passport_issued_by"/>
-                        <field name="phone"/>
-                        <field name="email"/>
-                        <field name="photo"  widget='image' class='oe_avatar'/>
-                        <field name="contact_person_id"/>
-                        <field name="personal_doctor_id"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(visit_action_from_patient)d" type="action" class="oe_stat_button" icon="fa-bars">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Visits</span>
+                                <span class="o_stat_text">history</span>
+                            </div>
+                        </button>
+                        <button name="%(diagnosis_action_from_patient)d" type="action" class="oe_stat_button" icon="fa-bars">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Diagnosises</span>
+                                <span class="o_stat_text">history</span>
+                            </div>
+                        </button>
+                        <button name="%(patient_study_action_from_patient)d" type="action" class="oe_stat_button" icon="fa-bars">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Studies</span>
+                                <span class="o_stat_text">history</span>
+                            </div>
+                        </button>
+                        
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="active" invisible="1"/>
+                    <group name="main_data">
+                        <h2>
+                            <group>
+                                <field name="last_name"/>
+                                <field name="first_name"/>
+                                <field name="midle_name"/>
+                            </group>
+                        </h2>
+                        <group>
+                            <field name="date_of_bith"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="photo"  widget='image' class='oe_avatar'/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page name="contacts" string="Contacts">
+                            <group>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="contact_person_id"/>
+                            </group>
+                        </page>
+                        <page name="passport" string="Passport">
+                            <group>
+                                <field name="passport_series"/>
+                            </group>
+                            <group>
+                                <field name="passport_number"/>
+                            </group>
+                            <group>
+                                <field name="passport_issued_by"/>
+                                <field name="passport_issued"/>
+                            </group>
+                        </page>
+                        <page name="personal_doctor" string="Doctors">
+                            <group>
+                                <field name="personal_doctor_id"/>
+                            </group>
+                            <newline/>
+                            <field name="personal_doctor_history_ids">
+                                <tree create="false">
+                                    <field name="doctor_id"/>
+                                    <field name="appointment_date"/>
+                                    <field name="patient_id" invisible="True"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="diagnosis" string="Вiagnosises">
+                            <field name="diagnosis_ids">
+                                <tree>
+                                    <field name="disease_id"/>
+                                    <field name="date_of_diagnosis"/>
+                                    <field name="doctor_id"/>
+                                    <field name="patient_id" invisible="True"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="visits" string="Visits">
+                            <field name="visit_ids">
+                                <tree>
+                                    <field name="doctor_id"/>
+                                    <field name="date_of_visit"/>
+                                    <field name="patient_id" invisible="True"/>
+                                    <field name="diagnosis_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                     <separator string="Description"/>
                     <field name="description" class="oe-bordered-editor" />
                 </sheet>

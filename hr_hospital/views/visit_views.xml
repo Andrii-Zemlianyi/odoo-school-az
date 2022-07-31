@@ -32,10 +32,20 @@
         </field>
     </record>
     <record id="visit_action" model="ir.actions.act_window">
-        <field name="name">Patient visits</field>
+        <field name="name">Patients visits</field>
         <field name="res_model">visit</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create visit</p>
+        </field>
+    </record>
+    <record id="visit_action_from_patient" model="ir.actions.act_window">
+        <field name="name">Patient visits</field>
+        <field name="res_model">visit</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create visit</p>

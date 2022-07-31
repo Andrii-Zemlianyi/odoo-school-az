@@ -7,7 +7,7 @@
     # 'website': "https://odoo.school",
 
     'category': 'Human Resources',
-    'version': '15.0.1.0.3',
+    'version': '15.0.1.0.4',
 
     'depends': ['base'],
 
@@ -23,11 +23,12 @@
         'views/diagnosis_views.xml',
         'views/disease_views.xml',
         'views/hr_hospital_menus.xml',
-        'views/patient_views.xml',
+
         'views/sample_type_views.xml',
         'views/visit_views.xml',
-         'data/hr_hospital_data.xml',
-         'wizard/set_personal_doctor_view.xml'
+        'views/patient_views.xml',
+        'data/hr_hospital_data.xml',
+        'wizard/set_personal_doctor_view.xml'
     ],
 
     # 'demo': [
