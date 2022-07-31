@@ -10,7 +10,6 @@ class Disease(models.Model):
     active = fields.Boolean(default=True)
     disease_type_id = fields.Many2one('disease.type',
                                       string='Disease type',
-                                      index=True,
                                       required=True,
                                       )
     description = fields.Text('Description')

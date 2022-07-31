@@ -6,12 +6,16 @@ class PatientStudy(models.Model):
     _description = 'Studies of patients'
 
     name = fields.Char(string='Name', index=True, required=True)
-    patient_id = fields.Many2one('patient', string='Patient',
-                                 index=True, required=True)
-    doctor_id = fields.Many2one('doctor', string='Doctor',
-                                index=True, required=True)
-    study_id = fields.Many2one('study.type', string='Study',
-                               index=True, required=True)
-    sample_id = fields.Many2one('sample.type', string='Sample type',
-                                index=True, required=True)
-    conclusion = fields.Text('Conclusion', required=True)
+    patient_id = fields.Many2one(comodel_name='patient',
+                                 string='Patient',
+                                 required=True)
+    doctor_id = fields.Many2one(comodel_name='doctor',
+                                string='Doctor',
+                                required=True)
+    study_id = fields.Many2one(comodel_name='study.type',
+                               string='Study',
+                               required=True)
+    sample_id = fields.Many2one(comodel_name='sample.type',
+                                string='Sample type',
+                                required=True)
+    conclusion = fields.Text(string='Conclusion', required=True)

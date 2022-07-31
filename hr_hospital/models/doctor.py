@@ -7,10 +7,18 @@ class Doctor(models.Model):
     _inherit = ['person.mixin', ]
     _description = 'Doctor'
 
-    specialty = fields.Char('specialty', required=True)
-    is_intern = fields.Boolean('Is Intern')
-    mentor_id = fields.Many2one('doctor', string='Mentor',
+    specialty = fields.Char(string='Specialty', required=True)
+    is_intern = fields.Boolean(string='Is Intern')
+    mentor_id = fields.Many2one(comodel_name='doctor', string='Mentor',
                                 domain=[('is_intern', '=', False)])
+
+    intern_ids = fields.One2many(comodel_name='doctor',
+                                 inverse_name='mentor_id',
+                                 string='Interns',
+                                 domain=[('is_intern', '=', True)])
+    patient_ids = fields.One2many(comodel_name='patient',
+                                           inverse_name='personal_doctor_id',
+                                           string='Doctor patients')
     description = fields.Text()
 
     def name_get(self):

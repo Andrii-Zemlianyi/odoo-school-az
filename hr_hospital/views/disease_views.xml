@@ -29,6 +29,17 @@
             </form>
         </field>
     </record>
+    <record id="disease_view_search" model="ir.ui.view">
+        <field name="name">disease.view.search</field>
+        <field name="model">disease</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <searchpanel view_types="tree,pivot">
+                    <field name="disease_type_id" hierarchize="1" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
     <record id="disease_action" model="ir.actions.act_window">
         <field name="name">Diseases</field>
         <field name="res_model">disease</field>

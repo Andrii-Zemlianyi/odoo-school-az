@@ -36,6 +36,20 @@
             </form>
         </field>
     </record>
+    <record id="patient_study_view_search" model="ir.ui.view">
+        <field name="name">patient.study.view.search</field>
+        <field name="model">patient.study</field>
+        <field name="arch" type="xml">
+            <search string="Patient">
+                <field name="patient_id" 
+                        filter_domain="['|','|',
+                        ('patient_id.first_name','ilike',self),
+                        '|',('patient_id.last_name','ilike',self),
+                        ('patient_id.midle_name','ilike',self),
+                        ('patient_id.phone','ilike',self)]"/>
+            </search>
+        </field>
+    </record>
     <record id="patient_study_action" model="ir.actions.act_window">
         <field name="name">Patient Study</field>
         <field name="res_model">patient.study</field>
@@ -46,7 +60,7 @@
             <p class="o_view_nocontent_smiling_face">Create patient study</p>
         </field>
     </record>
-        <record id="patient_study_action_from_patient" model="ir.actions.act_window">
+    <record id="patient_study_action_from_patient" model="ir.actions.act_window">
         <field name="name">Patient Study</field>
         <field name="res_model">patient.study</field>
         <field name="view_mode">tree,form</field>
