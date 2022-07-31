@@ -20,17 +20,18 @@
             <form string="Patient study">
                 <sheet>
                     <group>
-                        <label for="name" class="oe_inline"/>
-                        <h1>
-                            <field name="name"/>
-                        </h1>
+                        <field name="name"/>
                         <field name="patient_id"/>
                         <field name="doctor_id"/>
                         <field name="study_id"/>
-                        <field name="sample_id"/>
-                        <separator string="Conclusion"/>
-                        <field name="conclusion" class="oe-bordered-editor" />
                     </group>
+                    <notebook>
+                        <page name="sample" string="Sample">
+                            <field name="sample_id"/>
+                            <separator string="Conclusion"/>
+                            <field name="conclusion" class="oe-bordered-editor" />
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
