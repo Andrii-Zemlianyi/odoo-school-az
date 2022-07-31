@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="doctor_view_tree" model="ir.ui.view">
+        <field name="name">doctor.view.tree</field>
+        <field name="model">doctor</field>
+        <field name="arch" type="xml">
+            <tree string="Doctors">
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="midle_name"/>
+                <field name="gender"/>
+                <field name="specialty"/>
+                <field name="is_intern"/>
+            </tree>
+        </field>
+    </record>
+    <record id="doctor_view_form" model="ir.ui.view">
+        <field name="name">doctor.view.form</field>
+        <field name="model">doctor</field>
+        <field name="arch" type="xml">
+            <form string="Doctor">
+                <sheet>
+                    <group>
+                        <field name="last_name"/>
+                        <field name="first_name"/>
+                        <field name="midle_name"/>
+                        <field name="gender"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="photo" widget='image' class='oe_avatar'/>
+                        <field name="specialty"/>
+                        <field name="is_intern"/>
+                        <field name="mentor_id"/>
+                        <separator string="Description"/>
+                        <field name="description" class="oe-bordered-editor" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="doctor_action" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">doctor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Doctor</p>
+        </field>
+    </record>
+    <menuitem 
+        id="doctor_hospital_tree"
+        name="Doctor"
+        parent="hr_hospital_registry_menu"
+        action="doctor_action"
+        sequence="20" />
+</odoo>

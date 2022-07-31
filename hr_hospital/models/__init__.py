@@ -1,0 +1,13 @@
+from . import (person_mixin,
+               doctor, 
+               contact_person,
+               personal_doctor_history,
+               patient,
+               patient_study,
+               disease_type,
+               sample_type,
+               study_type,
+               disease,
+               diagnosis,
+               visit,
+               )

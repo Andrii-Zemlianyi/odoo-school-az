@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="patient_view_tree" model="ir.ui.view">
+        <field name="name">view.patient.form.tree</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="midle_name"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+    <record id="patient_view_form" model="ir.ui.view">
+        <field name="name">view.patient.form</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient">
+                <sheet>
+                    <group>
+                        <field name="last_name"/>
+                        <field name="first_name"/>
+                        <field name="midle_name"/>
+                        <field name="date_of_bith"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="passport_series"/>
+                        <field name="passport_number"/>
+                        <field name="passport_issued"/>
+                        <field name="passport_issued_by"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="photo"  widget='image' class='oe_avatar'/>
+                        <field name="contact_person_id"/>
+                        <field name="personal_doctor_id"/>
+                    </group>
+                    <separator string="Description"/>
+                    <field name="description" class="oe-bordered-editor" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">patient</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Patient</p>
+        </field>
+    </record>
+    <menuitem 
+            name="Patient" 
+            id="patient_hospital_tree" 
+            parent="hr_hospital_registry_menu" 
+            action="patient_action" 
+            sequence="10" />
+</odoo>
