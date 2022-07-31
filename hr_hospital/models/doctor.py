@@ -18,10 +18,3 @@ class Doctor(models.Model):
                  "phD %s %s" % (rec.last_name,
                                 rec.first_name)
                  ) for rec in self]
-
-    # @api.constrains('is_intern', 'mentor_id')
-    # def check_intern(self):
-    #     for doctor in self:
-    #         is_mentor_intern = doctor.mentor_id.is_intern
-    #         if doctor.is_intern and is_mentor_intern is True:
-    #             raise ValidationError(_('The intern can not be mentor!'))

@@ -2,7 +2,7 @@
 <odoo>
     <record id="set_personal_doctor_view_form" model="ir.ui.view">
         <field name="name">set.personal.doctor.view.form</field>
-        <field name="model">set.personal.doctor</field>
+        <field name="model">set.personal.doctor.wizard</field>
         <field name="arch" type="xml">
             <form string="Set personal doctor">
                 <group>
@@ -18,21 +18,10 @@
     </record>
     <record id="set_personal_doctor_action" model="ir.actions.act_window">
         <field name="name">Set personal doctor</field>
-        <field name="res_model">set.personal.doctor</field>
+        <field name="res_model">set.personal.doctor.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
         <field name="binding_model_id" ref="model_patient"/>
         <field name="binding_view_types">list</field>
     </record>
-<!--    <record id="set_personal_doctor_action_server" model="ir.actions.server">-->
-<!--        <field name="name">Set Personal Doctor</field>-->
-<!--        <field name="model_id" ref="model_patient"/>-->
-<!--        <field name="binding_model_id" ref="model_patient"/>-->
-<!--        <field name="binding_view_types">list</field>-->
-<!--        <field name="state">code</field>-->
-<!--        <field name="code">-->
-<!--        if records:-->
-<!--            action = records.action_error()-->
-<!--            </field>-->
-<!--    </record>-->
 </odoo>

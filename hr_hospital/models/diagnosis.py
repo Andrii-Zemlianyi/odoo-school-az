@@ -1,3 +1,4 @@
+from email.policy import default
 from odoo import models, fields
 
 
@@ -6,6 +7,7 @@ class Diagnosis(models.Model):
     _description = 'Diagnosis'
 
     name = fields.Char('Name', index=True, required=True)
+    active = fields.Boolean(default=True)
     doctor_id = fields.Many2one('doctor', string='Doctor',
                                  index=True, required=True)
     patient_id = fields.Many2one('patient', string='Patient',

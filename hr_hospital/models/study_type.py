@@ -8,6 +8,7 @@ class StudyType(models.Model):
     _parent_store = True
 
     name = fields.Char('Name', index=True, required=True)
+    active = fields.Boolean(default=True)
     parent_id = fields.Many2one('study.type', 'Parent Type', index=True,
                                 ondelete='cascade')
     parent_path = fields.Char(index=True)

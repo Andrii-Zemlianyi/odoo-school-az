@@ -1,3 +1,4 @@
+from email.policy import default
 from odoo import _, fields, models, api
 
 
@@ -5,6 +6,7 @@ class PersonMixin(models.AbstractModel):
     _name = 'person.mixin'
     _description = 'Person mixin'
 
+    active = fields.Boolean(default=True)
     first_name = fields.Char(string='First Name',
                              required=True)
     last_name = fields.Char(string='Last Name',
