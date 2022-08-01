@@ -3,7 +3,7 @@ from odoo import api, fields, models
 
 class PatientTest(models.Model):
     _name = 'patient.test'
-    _description = 'Studies of patients'
+    _description = 'Tests of patients'
 
     name = fields.Char(string='Name', index=True, required=True)
     patient_id = fields.Many2one(comodel_name='patient',

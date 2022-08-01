@@ -17,7 +17,7 @@ class Visit(models.Model):
     end_of_visit = fields.Datetime(string='End of visit',
                                    compute='_compute_end_of_visit')
     test_ids = fields.Many2many(comodel_name='patient.test',
-                                 string='Studies')
+                                 string='Tests')
     diagnosis_id = fields.Many2one(comodel_name='diagnosis',
                                    string='Diagnosis')
     recommendation = fields.Text(string='Recommendation',

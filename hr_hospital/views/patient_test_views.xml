@@ -4,7 +4,7 @@
         <field name="name">patient.test.view.tree</field>
         <field name="model">patient.test</field>
         <field name="arch" type="xml">
-            <tree string="Patient studies">
+            <tree string="Patient tests">
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
@@ -83,7 +83,7 @@
     </record>
     <menuitem
         id="patient_test_menu"
-        name="Patient studies"
+        name="Patient tests"
         action="patient_test_action"
         parent="hr_hospital_visit_menu"
         sequence="50"/>
