@@ -4,7 +4,7 @@
         <field name="name">personal.doctor.history.view.tree</field>
         <field name="model">personal.doctor.history</field>
         <field name="arch" type="xml">
-            <tree string="History of personal doctors">
+            <tree>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
                 <field name="appointment_date"/>

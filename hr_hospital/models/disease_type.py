@@ -7,7 +7,7 @@ class DiseaseType(models.Model):
     _parent_name = "parent_id"
     _parent_store = True
 
-    name = fields.Char('Name', index=True, required=True)
+    name = fields.Char(index=True, required=True)
     active = fields.Boolean(default=True)
     parent_id = fields.Many2one('disease.type', 'Parent Type', index=True,
                                 ondelete='cascade')

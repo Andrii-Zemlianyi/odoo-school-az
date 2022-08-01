@@ -4,7 +4,7 @@
         <field name="name">doctor.view.tree</field>
         <field name="model">doctor</field>
         <field name="arch" type="xml">
-            <tree string="Doctors">
+            <tree>
                 <field name="last_name"/>
                 <field name="first_name"/>
                 <field name="midle_name"/>

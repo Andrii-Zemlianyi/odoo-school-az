@@ -12,21 +12,20 @@ class Visit(models.Model):
     patient_id = fields.Many2one(comodel_name='patient',
                                  string='Patient',
                                  index=True, required=True)
-    date_of_visit = fields.Datetime(string='Date of visit', required=True)
-    time_reception = fields.Integer(string='Time reception', required=True)
-    end_of_visit = fields.Datetime(string='End of visit',
-                                   compute='_compute_end_of_visit')
+    date_of_visit = fields.Datetime(required=True)
+    time_reception = fields.Integer(string='Time reception (minutes)',
+                                    required=True)
+    end_of_visit = fields.Datetime(compute='_compute_end_of_visit')
     test_ids = fields.Many2many(comodel_name='patient.test',
-                                 string='Tests')
+                                string='Tests')
     diagnosis_id = fields.Many2one(comodel_name='diagnosis',
                                    string='Diagnosis')
-    recommendation = fields.Text(string='Recommendation',
-                                 required=True)
+    recommendation = fields.Text()
 
     def name_get(self):
         return [(rec.id,
                  "Visit %s at %s" % (rec.id,
-                                        rec.date_of_visit)
+                                     rec.date_of_visit)
                  ) for rec in self]
 
     @api.depends('date_of_visit', 'time_reception')

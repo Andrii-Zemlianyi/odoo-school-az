@@ -4,7 +4,7 @@
         <field name="name">test.type.view.tree</field>
         <field name="model">test.type</field>
         <field name="arch" type="xml">
-            <tree string="Types of test">
+            <tree>
                 <field name="name"/>
                 <field name="parent_id"/>
             </tree>

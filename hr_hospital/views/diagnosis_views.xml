@@ -4,7 +4,7 @@
         <field name="name">diagnosis.view.tree</field>
         <field name="model">diagnosis</field>
         <field name="arch" type="xml">
-            <tree string="Diagnosis">
+            <tree>
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>

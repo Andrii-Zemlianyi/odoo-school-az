@@ -4,7 +4,7 @@
         <field name="name">disease.type.view.tree</field>
         <field name="model">disease.type</field>
         <field name="arch" type="xml">
-            <tree string="Types of disease">
+            <tree>
                 <field name="name"/>
                 <field name="parent_id"/>
             </tree>

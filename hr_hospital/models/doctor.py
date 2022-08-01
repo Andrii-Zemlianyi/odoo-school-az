@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+from odoo import models, fields
 
 
 class Doctor(models.Model):
@@ -7,8 +6,8 @@ class Doctor(models.Model):
     _inherit = ['person.mixin', ]
     _description = 'Doctor'
 
-    specialty = fields.Char(string='Specialty', required=True)
-    is_intern = fields.Boolean(string='Is Intern')
+    specialty = fields.Char(required=True)
+    is_intern = fields.Boolean()
     mentor_id = fields.Many2one(comodel_name='doctor', string='Mentor',
                                 domain=[('is_intern', '=', False)])
 
@@ -17,8 +16,8 @@ class Doctor(models.Model):
                                  string='Interns',
                                  domain=[('is_intern', '=', True)])
     patient_ids = fields.One2many(comodel_name='patient',
-                                           inverse_name='personal_doctor_id',
-                                           string='Doctor patients')
+                                  inverse_name='personal_doctor_id',
+                                  string='Doctor patients')
     description = fields.Text()
 
     def name_get(self):

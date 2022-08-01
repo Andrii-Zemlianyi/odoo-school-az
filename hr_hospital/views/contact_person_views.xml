@@ -4,7 +4,7 @@
         <field name="name">contact.person.view.tree</field>
         <field name="model">contact.person</field>
         <field name="arch" type="xml">
-            <tree string="Contact persons">
+            <tree>
                 <field name="last_name"/>
                 <field name="first_name"/>
                 <field name="midle_name"/>

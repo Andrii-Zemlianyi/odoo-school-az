@@ -1,5 +1,5 @@
 from . import (person_mixin,
-               doctor, 
+               doctor,
                contact_person,
                personal_doctor_history,
                patient,

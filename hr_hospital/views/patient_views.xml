@@ -1,10 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+    <record id="action_patient_visit" model="ir.actions.act_window">
+        <field name="name">Create visit</field>
+        <field name="res_model">visit</field>
+        <field name="view_mode">form,tree</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
+        <field name="context">{
+                "default_patient_id":active_id,
+                "default_doctor_id":False,}
+        </field>
+    </record>
     <record id="patient_view_tree" model="ir.ui.view">
         <field name="name">view.patient.form.tree</field>
         <field name="model">patient</field>
         <field name="arch" type="xml">
-            <tree string="Patients">
+            <tree>
                 <field name="last_name"/>
                 <field name="first_name"/>
                 <field name="midle_name"/>
@@ -18,7 +28,9 @@
         <field name="model">patient</field>
         <field name="arch" type="xml">
             <form string="Patient">
-                <header/>
+                <header>
+                    <button string="Create visit" name="%(action_patient_visit)d" type="action" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="%(visit_action_from_patient)d" type="action" class="oe_stat_button" icon="fa-bars">
@@ -39,7 +51,6 @@
                                 <span class="o_stat_text">history</span>
                             </div>
                         </button>
-                        
                     </div>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
                         attrs="{'invisible': [('active', '=', True)]}"/>
