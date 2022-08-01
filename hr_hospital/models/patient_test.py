@@ -1,8 +1,8 @@
 from odoo import api, fields, models
 
 
-class PatientStudy(models.Model):
-    _name = 'patient.study'
+class PatientTest(models.Model):
+    _name = 'patient.test'
     _description = 'Studies of patients'
 
     name = fields.Char(string='Name', index=True, required=True)
@@ -12,8 +12,8 @@ class PatientStudy(models.Model):
     doctor_id = fields.Many2one(comodel_name='doctor',
                                 string='Doctor',
                                 required=True)
-    study_id = fields.Many2one(comodel_name='study.type',
-                               string='Study',
+    test_id = fields.Many2one(comodel_name='test.type',
+                               string='Test',
                                required=True)
     sample_id = fields.Many2one(comodel_name='sample.type',
                                 string='Sample type',

@@ -77,13 +77,19 @@
                             </group>
                         </page>
                         <page name="interns" string="Interns" attrs="{'invisible':[('is_intern', '=', True)]}">
-                            <field name="intern_ids" >
-                                <kanban class="o_kanban_mobile" default_group_by="specialty">
+                            <field name="intern_ids" mode="kanban">
+                                <kanban>
+                                    <field name="last_name"/>
+                                    <field name="first_name"/>
+                                    <field name="midle_name"/>
                                     <field name="specialty"/>
+                                    <field name="photo"/>
                                     <templates>
-                                        <progressbar field="specialty"/>
                                         <t t-name="kanban-box">
-                                            <div>
+                                            <div class="o_kanban_image">
+                                                <field name="photo" widget="image" class="o_kanban_image"/>
+                                            </div>
+                                            <div class="oe_kanban_details">
                                                 <field name="last_name"/>
                                                 <field name="first_name"/>
                                                 <field name="midle_name"/>

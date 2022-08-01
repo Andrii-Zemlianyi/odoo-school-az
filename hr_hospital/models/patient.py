@@ -55,12 +55,3 @@ class Patient(models.Model):
                     'patient_id': obj.id, 'appointment_date': date.today(), })
             super(Patient, obj).write(vals)
         return True
-        # if vals.get('personal_doctor_id'):
-        #     valp = {'doctor_id': vals.get('personal_doctor_id'),
-        #             'patient_id': self.id, 'appointment_date': date.today()}
-        #     # rec = self.env['personal.doctor.history'].search([('doctor_id', '=', vals.get('personal_doctor_id')),
-        #     #                                                  ('patient_id', '=', self.id),
-        #     #                                                  ('appointment_date', '=', valp['appointment_date'])],
-        #     #                                                 limit=1)  # first search record
-        #     # if not rec.write(valp):
-        #     self.env['personal.doctor.history'].create(valp)

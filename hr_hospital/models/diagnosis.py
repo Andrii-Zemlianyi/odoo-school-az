@@ -15,7 +15,7 @@ class Diagnosis(models.Model):
     disease_id = fields.Many2one('disease', string='Disease',
                                  required=True)
     date_of_diagnosis = fields.Date('Date of diagnosis')
-    study_ids = fields.Many2many('patient.study', string='Studies')
+    test_ids = fields.Many2many('patient.test', string='Studies')
     prescribed_treatment = fields.Text(string='Prescribed treatment')
     comments_of_mentor = fields.Text('Comments of mentor')
 

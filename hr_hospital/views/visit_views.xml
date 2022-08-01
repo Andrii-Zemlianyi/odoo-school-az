@@ -24,7 +24,7 @@
                         <field name="date_of_visit"/>
                         <field name="time_reception"/>
                         <field name="diagnosis_id"/>
-                        <field name="study_ids" widget="many2many_tags"/>
+                        <field name="test_ids" widget="many2many_tags"/>
                         <field name="recommendation"/>
                     </group>
                 </sheet>
