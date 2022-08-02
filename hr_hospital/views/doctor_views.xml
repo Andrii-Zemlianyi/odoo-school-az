@@ -14,21 +14,43 @@
             </tree>
         </field>
     </record>
+    <record id="visit_action_from_doctor" model="ir.actions.act_window">
+        <field name="name">Patient visit to doctor</field>
+        <field name="res_model">visit</field>
+        <field name="view_mode">form,tree</field>
+        <field name="domain">[('doctor_id','=',active_id)]</field>
+        <field name="context">{                
+                "default_patient_id":False,
+                "default_doctor_id":active_id,
+                }</field>
+    </record>
     <record id="doctor_view_kanban" model="ir.ui.view">
         <field name="name">doctor.view.kanban</field>
         <field name="model">doctor</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile" default_group_by="specialty">
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="midle_name"/>
                 <field name="specialty"/>
                 <field name="is_intern"/>
+                <field name="photo"/>
                 <templates>
                     <progressbar field="is_intern" colors='{"False": "success", "True": "danger"}'/>
                     <t t-name="kanban-box">
-                        <div>
-                            <field name="last_name"/>
-                            <field name="first_name"/>
-                            <field name="midle_name"/>
+                        <div class="o_kanban_image">
+                            <field name="photo" widget="image"/>
+                        </div>
+                        <div class="oe_kanban_details">
+                            <strong>
+                                <field name="last_name"/>
+                                <field name="first_name"/>
+                                <field name="midle_name"/>
+                            </strong>
                             <field name="specialty"/>
+                            <button string="Create visit" name="%(visit_action_from_doctor)d" type="action" class="oe_highlight">
+                                <span>Create visit</span>
+                            </button>
                         </div>
                     </t>
                 </templates>
@@ -87,7 +109,7 @@
                                     <templates>
                                         <t t-name="kanban-box">
                                             <div class="o_kanban_image">
-                                                <field name="photo" widget="image" class="o_kanban_image"/>
+                                                <field name="photo" widget="image"/>
                                             </div>
                                             <div class="oe_kanban_details">
                                                 <field name="last_name"/>
