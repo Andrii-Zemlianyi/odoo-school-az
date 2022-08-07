@@ -18,7 +18,13 @@ class Doctor(models.Model):
     patient_ids = fields.One2many(comodel_name='patient',
                                   inverse_name='personal_doctor_id',
                                   string='Doctor patients')
+    mentor_first_name = fields.Char(related='mentor_id.first_name')
+    mentor_last_name = fields.Char(related='mentor_id.last_name')
+    mentor_midle_name = fields.Char(related='mentor_id.midle_name')
+    mentor_specialty = fields.Char(related='mentor_id.specialty')
+
     description = fields.Text()
+    color = fields.Integer("Color Index", default=0)
 
     def name_get(self):
         return [(rec.id,

@@ -30,6 +30,7 @@ class Patient(models.Model):
     diagnosis_ids = fields.One2many(comodel_name='diagnosis',
                                     inverse_name='patient_id',
                                     string='Diagnosises')
+    color = fields.Integer("Color Index", default=0)
 
     @api.depends('date_of_bith')
     def _compute_age(self):

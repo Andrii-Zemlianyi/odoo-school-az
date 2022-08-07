@@ -24,6 +24,8 @@
         'views/hr_hospital_menus.xml',
         'views/sample_type_views.xml',
         'views/visit_views.xml',
+        'report/doctor_report.xml',
+        'report/doctor_templates.xml',
         'views/doctor_views.xml',
         'views/patient_views.xml',
         'data/hr_hospital_data.xml',

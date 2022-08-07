@@ -35,22 +35,52 @@
                 <field name="specialty"/>
                 <field name="is_intern"/>
                 <field name="photo"/>
+                <field name="id"/>
+                <field name="color"/>
                 <templates>
-                    <progressbar field="is_intern" colors='{"False": "success", "True": "danger"}'/>
                     <t t-name="kanban-box">
-                        <div class="o_kanban_image">
-                            <field name="photo" widget="image"/>
-                        </div>
-                        <div class="oe_kanban_details">
-                            <strong>
-                                <field name="last_name"/>
-                                <field name="first_name"/>
-                                <field name="midle_name"/>
-                            </strong>
-                            <field name="specialty"/>
-                            <button string="Create visit" name="%(visit_action_from_doctor)d" type="action" class="oe_highlight">
-                                <span>Create visit</span>
-                            </button>
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header_title">
+                                <strong>
+                                    <field name="last_name"/>
+                                    <field name="first_name"/>
+                                    <field name="midle_name"/>
+                                </strong>
+                            </div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn"
+                                  data-toggle="dropdown" href="#">
+                                    <span class="fa fa-ellipsis-v"
+                                         aria-hidden="true"/>
+                                </a>
+                                <div class="o_kanban_card_manage_setting row mt16">
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit"
+                                              class="dropdown-item">Edit
+                                           </a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem"
+                                              type="delete"
+                                              class="dropdown-item">Delete
+                                           </a>
+                                        </t>
+                                        <ul class="oe_kanban_colorpicker"
+                                           data-field="color"/>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="o_kanban_image">
+                                <img alt="img" t-att-src="kanban_image('doctor', 'photo', record.id.raw_value)" class="o_image_64_max" height="52"/>
+                            </div>
+
+                            <div class="oe_kanban_details">
+                                <field name="specialty"/>
+                                <button string="Create visit" name="%(visit_action_from_doctor)d" type="action" class="oe_highlight">
+                                    <span>Visit</span>
+                                </button>
+                            </div>
                         </div>
                     </t>
                 </templates>
@@ -88,14 +118,11 @@
                         </page>
                         <page name="mentor" string="Mentor" attrs="{'invisible':[('is_intern', '=', False)]}">
                             <group>
-                                <field name="mentor_id">
-                                    <tree>
-                                        <field name="last_name"/>
-                                        <field name="first_name"/>
-                                        <field name="midle_name"/>
-                                        <field name="specialty"/>
-                                    </tree>
-                                </field>
+                                <field name="mentor_id"/>
+                                <field name="mentor_last_name"/>
+                                <field name="mentor_first_name"/>
+                                <field name="mentor_midle_name"/>
+                                <field name="mentor_specialty"/>
                             </group>
                         </page>
                         <page name="interns" string="Interns" attrs="{'invisible':[('is_intern', '=', True)]}">
