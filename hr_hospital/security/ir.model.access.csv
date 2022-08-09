@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_doctor_base,access_doctor.base,model_doctor,base.group_user,1,1,1,1
+access_patient_base,access_patient.base,model_patient,base.group_user,1,1,1,1
+access_diagnosis_base,access_diagnosis.base,model_diagnosis,base.group_user,1,1,1,1
+access_disease_base,access_disease.base,model_disease,base.group_user,1,1,1,1
+access_disease_type_base,access_disease_type.base,model_disease_type,base.group_user,1,1,1,1
+access_patient_test_base,access_patient_test.base,model_patient_test,base.group_user,1,1,1,1
+access_contact_person_base,access_contact_person.base,model_contact_person,base.group_user,1,1,1,1
+access_visit_base,access_visit.base,model_visit,base.group_user,1,1,1,1
+access_personal_doctor_history_base,personal_doctor_history.base,model_personal_doctor_history,base.group_user,1,1,1,1
+access_sample_type_base,sample_type.base,model_sample_type,base.group_user,1,1,1,1
+access_test_type_base,test.type.base,model_test_type,base.group_user,1,1,1,1
+access_set_personal_doctor_base,set.personal.doctor.base,model_set_personal_doctor_wizard,base.group_user,1,1,1,1

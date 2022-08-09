@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="patient_test_view_tree" model="ir.ui.view">
+        <field name="name">patient.test.view.tree</field>
+        <field name="model">patient.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="test_id"/>
+                <field name="sample_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="patient_test_view_form" model="ir.ui.view">
+        <field name="name">patient.test.view.form</field>
+        <field name="model">patient.test</field>
+        <field name="arch" type="xml">
+            <form string="Patient test">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="test_id"/>
+                    </group>
+                    <notebook>
+                        <page name="sample" string="Sample">
+                            <field name="sample_id"/>
+                            <separator string="Conclusion"/>
+                            <field name="conclusion" class="oe-bordered-editor" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="patient_test_view_search" model="ir.ui.view">
+        <field name="name">patient.test.view.search</field>
+        <field name="model">patient.test</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="patient_id" 
+                        filter_domain="['|','|',
+                        ('patient_id.first_name','ilike',self),
+                        '|',('patient_id.last_name','ilike',self),
+                        ('patient_id.midle_name','ilike',self),
+                        ('patient_id.phone','ilike',self)]"/>
+                <filter name="filter_create_date" date="create_date" string="Creation Date" default_period="this_month"/>
+            </search>
+        </field>
+    </record>
+    <record id="patient_test_view_pivot" model="ir.ui.view">
+        <field name="name">patient_test.view.pivot</field>
+        <field name="model">patient.test</field>
+        <field name="arch" type="xml">
+            <pivot disable_linking="true" display_quantity="1">
+                <field name="doctor_id" type="row"/>
+                <field name="test_id"  type="col" />
+            </pivot>
+        </field>
+    </record>
+    <record id="patient_test_action" model="ir.actions.act_window">
+        <field name="name">Patient Test</field>
+        <field name="res_model">patient.test</field>
+        <field name="view_mode">tree,form,pivot</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_filter_create_date':1,}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create patient test</p>
+        </field>
+    </record>
+    <record id="patient_test_action_from_patient" model="ir.actions.act_window">
+        <field name="name">Patient Test</field>
+        <field name="res_model">patient.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create patient test</p>
+        </field>
+    </record>
+    <menuitem
+        id="patient_test_menu"
+        name="Patient tests"
+        action="patient_test_action"
+        parent="hr_hospital_visit_menu"
+        sequence="50"/>
+</odoo>
