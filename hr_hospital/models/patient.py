@@ -32,6 +32,12 @@ class Patient(models.Model):
                                     string='Diagnosises')
     color = fields.Integer("Color Index", default=0)
 
+    def name_get(self):
+        return [(rec.id,
+                 "%s %s" % (rec.last_name,
+                            rec.first_name)
+                 ) for rec in self]
+
     @api.depends('date_of_bith')
     def _compute_age(self):
         for man in self:
